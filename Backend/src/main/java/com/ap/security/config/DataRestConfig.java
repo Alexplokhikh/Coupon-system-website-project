@@ -14,10 +14,10 @@ public class DataRestConfig implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config,
                                                      CorsRegistry cors) {
         HttpMethod[] unsupportedActions = {
-//                HttpMethod.PATCH,
-//                HttpMethod.POST,
-//                HttpMethod.PUT,
-                  HttpMethod.DELETE
+                HttpMethod.PATCH,
+                HttpMethod.POST,
+                HttpMethod.PUT,
+                HttpMethod.DELETE
         };
 
         config.exposeIdsFor(Coupon.class);

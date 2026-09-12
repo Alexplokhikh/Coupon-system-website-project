@@ -9,7 +9,6 @@ import { API_BASE_URL } from "../../../api";
 
 export const HistoryPage = () => {
   const token = useSelector((state: RootState) => state.auth.token);
-  const isAuthenticated = token !== null;
 
   const [isLoadingHistory, setisLoadingHistory] = useState(true);
   const [httpError, setHttpError] = useState(null);
@@ -23,14 +22,12 @@ export const HistoryPage = () => {
 
   useEffect(() => {
     const fetchUserHistory = async () => {
-      if (isAuthenticated) {
-        const object = JSON.parse(atob(token.split(".")[1]));
-        const userEmail = object.sub;
-
-        const url = `${API_BASE_URL}/api/histories/search/findCouponsByUserEmail?userEmail=${userEmail}&page=${currentPage - 1}&size=5`;
+      if (token) {
+        const url = `${API_BASE_URL}/secure/api/histories?page=${currentPage - 1}&size=5`;
         const requestOptions = {
           method: "GET",
           headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         };
@@ -40,8 +37,8 @@ export const HistoryPage = () => {
         }
         const historyResponseJson = await historyResponse.json();
 
-        setHistories(historyResponseJson._embedded.histories);
-        setTotalPages(historyResponseJson.page.totalPages);
+        setHistories(historyResponseJson.content);
+        setTotalPages(historyResponseJson.totalPages);
       }
       setisLoadingHistory(false);
     };
@@ -49,7 +46,7 @@ export const HistoryPage = () => {
       setisLoadingHistory(false);
       setHttpError(error.message);
     });
-  }, [isAuthenticated, currentPage]);
+  }, [token, currentPage]);
 
   if (isLoadingHistory) {
     return <SpinnerLoading />;
