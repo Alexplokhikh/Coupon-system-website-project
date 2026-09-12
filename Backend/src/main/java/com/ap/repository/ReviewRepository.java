@@ -11,4 +11,6 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
     Page<Review> findByCouponId(@RequestParam("coupon_id") Long couponId, Pageable pageable);
 
     Review findByUserEmailAndCouponId(String userEmail, Long couponId);
+
+    boolean existsByCouponIdAndUserEmail(Long couponId, String userEmail);
 }

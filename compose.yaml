@@ -31,6 +31,7 @@ services:
       HIBERNATE_DDL_AUTO: update
       SHOW_SQL: "false"
       PORT: 8080
+      DEMO_DATA_ENABLED: "${DEMO_DATA_ENABLED:-true}"
     ports:
       - "${PORT:-8080}:8080"
     depends_on:
