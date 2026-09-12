@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { login } from "../store/auth-slice";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../api";
 
 export const Login = () => {
   const emailRef = useRef(null);
@@ -25,7 +26,7 @@ export const Login = () => {
   };
 
   const performLogin = async (email, password) => {
-    const response = await fetch("http://localhost:8080/auth/authenticate", {
+    const response = await fetch(`${API_BASE_URL}/auth/authenticate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

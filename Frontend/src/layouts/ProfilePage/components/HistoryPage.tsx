@@ -5,6 +5,7 @@ import HistoryModel from "../../../models/HistoryModel";
 import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import { Link } from "react-router-dom";
 import { Pagination } from "../../Utils/Pagination";
+import { API_BASE_URL } from "../../../api";
 
 export const HistoryPage = () => {
   const token = useSelector((state: RootState) => state.auth.token);
@@ -26,7 +27,7 @@ export const HistoryPage = () => {
         const object = JSON.parse(atob(token.split(".")[1]));
         const userEmail = object.sub;
 
-        const url = `http://localhost:8080/api/histories/search/findCouponsByUserEmail?userEmail=${userEmail}&page=${currentPage - 1}&size=5`;
+        const url = `${API_BASE_URL}/api/histories/search/findCouponsByUserEmail?userEmail=${userEmail}&page=${currentPage - 1}&size=5`;
         const requestOptions = {
           method: "GET",
           headers: {

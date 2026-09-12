@@ -6,6 +6,7 @@ import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import { PurchasesModal } from "./PurchasesModal";
+import { API_BASE_URL } from "../../../api";
 
 export const Purchases = () => {
   const token = useSelector((state: RootState) => state.auth.token);
@@ -23,7 +24,7 @@ export const Purchases = () => {
   useEffect(() => {
     const fetchUserCurrentPurchases = async () => {
       if (isAuthenticated) {
-        const url = `http://localhost:8080/secure/api/coupons/currentpurchases`;
+        const url = `${API_BASE_URL}/secure/api/coupons/currentpurchases`;
         const requestOptions = {
           method: "GET",
           headers: {
@@ -64,7 +65,7 @@ export const Purchases = () => {
   }
 
   async function removeCoupon(couponId: number) {
-    const url = `http://localhost:8080/secure/api/coupons/remove?couponId=${couponId}`;
+    const url = `${API_BASE_URL}/secure/api/coupons/remove?couponId=${couponId}`;
     const requestOptions = {
       method: "PUT",
       headers: {

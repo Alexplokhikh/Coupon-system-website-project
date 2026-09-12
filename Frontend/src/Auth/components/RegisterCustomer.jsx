@@ -1,6 +1,7 @@
 import { Form } from "reactstrap";
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../api";
 
 export const RegisterCustomer = () => {
   const emailRef = useRef(null);
@@ -30,21 +31,18 @@ export const RegisterCustomer = () => {
   };
 
   const performRegister = async (firstName, lastName, email, password) => {
-    const response = await fetch(
-      "http://localhost:8080/auth/register-customer",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          password,
-        }),
+    const response = await fetch(`${API_BASE_URL}/auth/register-customer`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        password,
+      }),
+    });
 
     const data = (await response).json();
 
