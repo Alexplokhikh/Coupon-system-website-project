@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../Auth/store/store";
 import { useEffect, useState } from "react";
 import ProfileCurrentPurchases from "../../../models/ProfileCurrentPurchases";
-import { Simulate } from "react-dom/test-utils";
-import error = Simulate.error;
 import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
