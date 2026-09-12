@@ -6,7 +6,6 @@ import com.ap.security.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/secure/api/company")
 public class CompanyController {
