@@ -23,23 +23,24 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:8.0
+      postgres:
+        image: postgres:16-alpine
         env:
-          MYSQL_ROOT_PASSWORD: test-password
-          MYSQL_DATABASE: cs_app_db
+          POSTGRES_DB: cs_app_db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test-password
         ports:
-          - 3306:3306
+          - 5432:5432
         options: >-
-          --health-cmd="mysqladmin ping -h localhost -uroot -ptest-password"
+          --health-cmd="pg_isready -U postgres -d cs_app_db"
           --health-interval=5s
           --health-timeout=5s
           --health-retries=20
-          --health-start-period=20s
+          --health-start-period=10s
 
     env:
-      DB_URL: jdbc:mysql://127.0.0.1:3306/cs_app_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      DB_USERNAME: root
+      DB_URL: jdbc:postgresql://127.0.0.1:5432/cs_app_db
+      DB_USERNAME: postgres
       DB_PASSWORD: test-password
       HIBERNATE_DDL_AUTO: create-drop
       SHOW_SQL: "false"
