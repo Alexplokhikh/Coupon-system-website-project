@@ -38,5 +38,17 @@ services:
       database:
         condition: service_healthy
 
+  frontend:
+    build:
+      context: ./Frontend
+      args:
+        REACT_APP_API_URL: "${REACT_APP_API_URL:-http://localhost:8080}"
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      backend:
+        condition: service_started
+
 volumes:
   coupon-database-data:
