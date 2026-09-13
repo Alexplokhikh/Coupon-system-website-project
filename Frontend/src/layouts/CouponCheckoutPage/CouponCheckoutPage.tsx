@@ -71,7 +71,7 @@ export const CouponCheckoutPage = () => {
       setIsLoading(false);
       setHttpError(error.message);
     });
-  }, [isCheckedOut]);
+  }, [isCheckedOut, couponId]);
 
   useEffect(() => {
     const fetchCouponReviews = async () => {
@@ -119,7 +119,7 @@ export const CouponCheckoutPage = () => {
       setIsLoadingReview(false);
       setHttpError(error.message);
     });
-  }, [isReviewLeft]);
+  }, [isReviewLeft, couponId]);
 
   useEffect(() => {
     const fetchUserReviewCoupon = async () => {
@@ -145,7 +145,7 @@ export const CouponCheckoutPage = () => {
       setIsLoadingUserReview(false);
       setHttpError(error.message);
     });
-  }, [isAuthenticated]);
+  }, [isAuthenticated, couponId, token]);
 
   useEffect(() => {
     const fetchUserCurrentCheckoutsCount = async () => {
@@ -172,7 +172,7 @@ export const CouponCheckoutPage = () => {
       setIsLoadingCurrentCheckoutsCount(false);
       setHttpError(error.message);
     });
-  }, [isAuthenticated, isCheckedOut]);
+  }, [isAuthenticated, isCheckedOut, token]);
 
   useEffect(() => {
     const fetchUserCheckedOutCoupon = async () => {
@@ -200,7 +200,7 @@ export const CouponCheckoutPage = () => {
       setIsLoadingCouponCheckedOut(false);
       setHttpError(error.message);
     });
-  }, [isAuthenticated]);
+  }, [isAuthenticated, couponId, token]);
 
   if (
     isLoading ||

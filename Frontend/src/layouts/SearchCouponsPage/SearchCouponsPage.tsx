@@ -66,7 +66,7 @@ export const SearchCouponsPage = () => {
       setHttpError(error.message);
     });
     window.scrollTo(0, 0);
-  }, [currentPage, searchUrl]);
+  }, [couponsPerPage, currentPage, searchUrl]);
 
   if (isLoading) {
     return <SpinnerLoading />;
@@ -158,60 +158,104 @@ export const SearchCouponsPage = () => {
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton1"
               >
-                <li onClick={() => categoryField("All")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("All")}
+                  >
                     All
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Clothing")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Clothing")}
+                  >
                     Clothing
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Footwear")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Footwear")}
+                  >
                     Footwear
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Food")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Food")}
+                  >
                     Food
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Travel")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Travel")}
+                  >
                     Travel
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Beauty")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Beauty")}
+                  >
                     Beauty
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Electronics")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Electronics")}
+                  >
                     Electronics
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Computer")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Computer")}
+                  >
                     Computer
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Security")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Security")}
+                  >
                     Security
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Automotive")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Automotive")}
+                  >
                     Automotive
-                  </a>
+                  </button>
                 </li>
-                <li onClick={() => categoryField("Toys")}>
-                  <a className="dropdown-item" href="#">
+                <li>
+                  <button
+                    type="button"
+                    className="dropdown-item"
+                    onClick={() => categoryField("Toys")}
+                  >
                     Toys
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>

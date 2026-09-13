@@ -56,7 +56,7 @@ export const ReviewListPage = () => {
       setIsLoading(false);
       setHttpError(error.message);
     });
-  }, [currentPage]);
+  }, [couponId, currentPage, reviewsPerPage]);
 
   if (isLoading) {
     return <SpinnerLoading />;

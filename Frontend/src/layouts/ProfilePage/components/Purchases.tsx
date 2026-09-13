@@ -50,7 +50,7 @@ export const Purchases = () => {
       setHttpError(error.message);
     });
     window.scrollTo(0, 0);
-  }, [isAuthenticated, checkout]);
+  }, [checkout, isAuthenticated, token]);
 
   if (isLoadingUserPurchases) {
     return <SpinnerLoading />;
@@ -97,13 +97,14 @@ export const Purchases = () => {
                         src={profileCurrentPurchases.coupon?.imageUrl}
                         width="225"
                         height="350"
-                        alt="Coupon"
+                        alt={profileCurrentPurchases.coupon.title}
                       />
                     ) : (
                       <img
                         src={require("./../../../Images/CouponImages/image-1.jpg")}
                         width="225"
                         height="350"
+                        alt={profileCurrentPurchases.coupon.title}
                       />
                     )}
                   </div>
@@ -180,13 +181,14 @@ export const Purchases = () => {
                       src={profileCurrentPurchases.coupon?.imageUrl}
                       width="225"
                       height="350"
-                      alt="Coupon"
+                      alt={profileCurrentPurchases.coupon.title}
                     />
                   ) : (
                     <img
                       src={require("./../../../Images/CouponImages/image-1.jpg")}
                       width="225"
                       height="350"
+                      alt={profileCurrentPurchases.coupon.title}
                     />
                   )}
                 </div>

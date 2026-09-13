@@ -162,84 +162,94 @@ export const AddCoupon = () => {
                   aria-labelledby="dropdownMenuButton1"
                 >
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Clothing")}
                       className="dropdown-item"
                     >
-                      clothing
-                    </a>
+                      Clothing
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Footwear")}
                       className="dropdown-item"
                     >
-                      footwear
-                    </a>
+                      Footwear
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Food")}
                       className="dropdown-item"
                     >
-                      food
-                    </a>
+                      Food
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Travel")}
                       className="dropdown-item"
                     >
-                      travel
-                    </a>
+                      Travel
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Beauty")}
                       className="dropdown-item"
                     >
-                      beauty
-                    </a>
+                      Beauty
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Electronics")}
                       className="dropdown-item"
                     >
-                      electronics
-                    </a>
+                      Electronics
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Computer")}
                       className="dropdown-item"
                     >
-                      compute
-                    </a>
+                      Computer
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Security")}
                       className="dropdown-item"
                     >
-                      security
-                    </a>
+                      Security
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Automotive")}
                       className="dropdown-item"
                     >
-                      automotive
-                    </a>
+                      Automotive
+                    </button>
                   </li>
                   <li>
-                    <a
+                    <button
+                      type="button"
                       onClick={() => categoryField("Toys")}
                       className="dropdown-item"
                     >
-                      toys
-                    </a>
+                      Toys
+                    </button>
                   </li>
                 </ul>
               </div>
